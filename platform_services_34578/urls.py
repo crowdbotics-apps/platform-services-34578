@@ -35,6 +35,9 @@ urlpatterns = [
     path("rest-auth/registration/", include("rest_auth.registration.urls")),
     path("api/v1/", include("plans.api.v1.urls")),
     path("api/v1/", include("subscription.api.v1.urls")),
+    path("api/v1/", include("apps.api.v1.urls")),
+    path("api/v1/", include("plan_features.api.v1.urls")),
+    path("api/v1/", include("subscriptions.api.v1.urls")),
 ]
 
 admin.site.site_header = "Platform Services"

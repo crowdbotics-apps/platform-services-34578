@@ -31,10 +31,6 @@ class User(AbstractUser):
         null=True,
         blank=True,
     )
-    email = models.TextField(
-        null=True,
-        blank=True,
-    )
     phone = models.TextField(
         null=True,
         blank=True,
@@ -42,6 +38,40 @@ class User(AbstractUser):
     is_active = models.BooleanField(
         null=True,
         blank=True,
+    )
+    email = models.EmailField(
+        max_length=50,
+        null=True,
+        blank=True,
+    )
+    password = models.TextField(
+        null=True,
+        blank=True,
+    )
+    email_verified_at = models.DateTimeField(
+        null=True,
+        blank=True,
+    )
+    created_at = models.DateTimeField(
+        auto_now=True,
+        null=True,
+        blank=True,
+    )
+    updated_at = models.DateTimeField(
+        auto_now=True,
+        null=True,
+        blank=True,
+    )
+    deleted_at = models.DateTimeField(
+        null=True,
+        blank=True,
+    )
+    subscriptions = models.OneToOneField(
+        "subscriptions.Subscriptions",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="user_subscriptions",
     )
 
     def get_absolute_url(self):

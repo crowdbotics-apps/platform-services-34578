@@ -7,20 +7,27 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Subscription',
+            name="Subscription",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('used_id', models.BigIntegerField()),
-                ('plan_id', models.BigIntegerField()),
-                ('starts_at', models.DateTimeField()),
-                ('ends_at', models.DateTimeField()),
-                ('created_at', models.DateTimeField(auto_now=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("used_id", models.BigIntegerField()),
+                ("plan_id", models.BigIntegerField()),
+                ("starts_at", models.DateTimeField()),
+                ("ends_at", models.DateTimeField()),
+                ("created_at", models.DateTimeField(auto_now=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
             ],
         ),
     ]
