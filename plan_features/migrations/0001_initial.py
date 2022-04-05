@@ -9,18 +9,33 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('plans', '0001_initial'),
+        ("plans", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='PlanFeatures',
+            name="PlanFeatures",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.TextField()),
-                ('description', models.TextField()),
-                ('is_active', models.BooleanField()),
-                ('plan_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='planfeatures_plan_id', to='plans.Plans')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.TextField()),
+                ("description", models.TextField()),
+                ("is_active", models.BooleanField()),
+                (
+                    "plan_id",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="planfeatures_plan_id",
+                        to="plans.Plans",
+                    ),
+                ),
             ],
         ),
     ]

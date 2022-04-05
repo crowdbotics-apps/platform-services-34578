@@ -38,6 +38,10 @@ urlpatterns = [
     path("api/v1/", include("apps.api.v1.urls")),
     path("api/v1/", include("plan_features.api.v1.urls")),
     path("api/v1/", include("subscriptions.api.v1.urls")),
+    path("apps/", include("apps.urls")),
+    path("plan_features/", include("plan_features.urls")),
+    path("plans/", include("plans.urls")),
+    path("subscriptions/", include("subscriptions.urls")),
 ]
 
 admin.site.site_header = "Platform Services"

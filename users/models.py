@@ -40,9 +40,9 @@ class User(AbstractUser):
         blank=True,
     )
     email = models.EmailField(
-        max_length=50,
         null=True,
         blank=True,
+        max_length=50,
     )
     password = models.TextField(
         null=True,
@@ -53,14 +53,14 @@ class User(AbstractUser):
         blank=True,
     )
     created_at = models.DateTimeField(
-        auto_now=True,
         null=True,
         blank=True,
+        auto_now=True,
     )
     updated_at = models.DateTimeField(
-        auto_now=True,
         null=True,
         blank=True,
+        auto_now=True,
     )
     deleted_at = models.DateTimeField(
         null=True,
@@ -68,9 +68,9 @@ class User(AbstractUser):
     )
     subscriptions = models.OneToOneField(
         "subscriptions.Subscriptions",
-        on_delete=models.CASCADE,
         null=True,
         blank=True,
+        on_delete=models.CASCADE,
         related_name="user_subscriptions",
     )
 
