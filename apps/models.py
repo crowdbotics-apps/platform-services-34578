@@ -4,7 +4,9 @@ from django.db import models
 
 class Apps(models.Model):
     "Generated Model"
-    name = models.TextField()
+    name = models.CharField(
+        max_length=255
+    )
     description = models.TextField()
     is_active = models.BooleanField()
     user_id = models.ForeignKey(
@@ -19,6 +21,5 @@ class Apps(models.Model):
         auto_now=True,
     )
     deleted_at = models.DateTimeField()
-
 
 # Create your models here.

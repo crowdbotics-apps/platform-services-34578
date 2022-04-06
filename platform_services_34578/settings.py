@@ -65,8 +65,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
+
+    # Your apps
     "plans",
-    "subscription",
     "apps",
     "plan_features",
     "subscriptions",

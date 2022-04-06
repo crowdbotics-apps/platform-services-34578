@@ -4,7 +4,9 @@ from django.db import models
 
 class Plans(models.Model):
     "Generated Model"
-    name = models.TextField()
+    name = models.CharField(
+        max_length=255
+    )
     amount = models.DecimalField(
         max_digits=30,
         decimal_places=2,

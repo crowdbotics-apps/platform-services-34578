@@ -4,7 +4,9 @@ from django.db import models
 
 class PlanFeatures(models.Model):
     "Generated Model"
-    name = models.TextField()
+    name = models.CharField(
+        max_length=255
+    )
     description = models.TextField()
     is_active = models.BooleanField()
     plan_id = models.ForeignKey(

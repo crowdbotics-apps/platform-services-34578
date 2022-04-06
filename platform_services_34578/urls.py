@@ -30,11 +30,11 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("users/", include("users.urls", namespace="users")),
     path("rest-auth/", include("rest_auth.urls")),
+
     # Override email confirm to use allauth's HTML view instead of rest_auth's API view
     path("rest-auth/registration/account-confirm-email/<str:key>/", confirm_email),
     path("rest-auth/registration/", include("rest_auth.registration.urls")),
     path("api/v1/", include("plans.api.v1.urls")),
-    path("api/v1/", include("subscription.api.v1.urls")),
     path("api/v1/", include("apps.api.v1.urls")),
     path("api/v1/", include("plan_features.api.v1.urls")),
     path("api/v1/", include("subscriptions.api.v1.urls")),

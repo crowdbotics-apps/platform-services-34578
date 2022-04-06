@@ -16,7 +16,11 @@ class Subscriptions(models.Model):
     )
     starts_at = models.DateTimeField()
     ends_at = models.DateTimeField()
-    status = models.TextField()
+    status = models.CharField(
+        null=True,
+        blank=True,
+        max_length=255
+    )
     created_at = models.DateTimeField(
         auto_now=True,
     )
