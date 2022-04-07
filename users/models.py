@@ -43,6 +43,7 @@ class User(AbstractUser):
         blank=True,
         max_length=255,
     )
+
     is_active = models.BooleanField(
         null=True,
         blank=True,
@@ -52,19 +53,27 @@ class User(AbstractUser):
         null=True,
         blank=True,
     )
+
     email_verified_at = models.DateTimeField(
         null=True,
         blank=True,
     )
-    created_at = models.DateTimeField(
-        auto_now=True,
+    subscriptions = models.OneToOneField(
+        "subscriptions.Subscriptions",
         null=True,
         blank=True,
+        on_delete=models.CASCADE,
+        related_name="user_subscriptions",
+    )
+    created_at = models.DateTimeField(
+        null=True,
+        blank=True,
+        auto_now=True,
     )
     updated_at = models.DateTimeField(
-        auto_now=True,
         null=True,
         blank=True,
+        auto_now=True,
     )
     deleted_at = models.DateTimeField(
         null=True,
