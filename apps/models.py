@@ -21,9 +21,9 @@ class Apps(models.Model):
     deleted_at = models.DateTimeField()
     subscription_id = models.ForeignKey(
         "subscriptions.Subscriptions",
-        on_delete=models.CASCADE,
         null=True,
         blank=True,
+        on_delete=models.CASCADE,
         related_name="apps_subscription_id",
     )
 

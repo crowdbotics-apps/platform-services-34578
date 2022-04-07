@@ -7,14 +7,20 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('subscriptions', '0001_initial'),
-        ('apps', '0001_initial'),
+        ("subscriptions", "0001_initial"),
+        ("apps", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='apps',
-            name='subscription_id',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='apps_subscription_id', to='subscriptions.Subscriptions'),
+            model_name="apps",
+            name="subscription_id",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="apps_subscription_id",
+                to="subscriptions.Subscriptions",
+            ),
         ),
     ]
