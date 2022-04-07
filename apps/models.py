@@ -19,6 +19,13 @@ class Apps(models.Model):
         auto_now=True,
     )
     deleted_at = models.DateTimeField()
+    subscription_id = models.ForeignKey(
+        "subscriptions.Subscriptions",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="apps_subscription_id",
+    )
 
 
 # Create your models here.
