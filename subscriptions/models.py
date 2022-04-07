@@ -19,7 +19,11 @@ class Subscriptions(models.Model):
     status = models.CharField(
         null=True,
         blank=True,
-        max_length=255
+        choices=(
+            ('active', "Active"),
+            ('inactive', "Inactive"),
+        ),
+        max_length=255,
     )
     created_at = models.DateTimeField(
         auto_now=True,
@@ -28,6 +32,5 @@ class Subscriptions(models.Model):
         auto_now=True,
     )
     deleted_at = models.DateTimeField()
-
 
 # Create your models here.
