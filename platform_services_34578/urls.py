@@ -44,9 +44,9 @@ urlpatterns = [
     path("subscriptions/", include("subscriptions.urls")),
 ]
 
-admin.site.site_header = "Platform Services"
-admin.site.site_title = "Platform Services Admin Portal"
-admin.site.index_title = "Platform Services Admin"
+admin.site.site_header = "Platform Services Test"
+admin.site.site_title = "Platform Services Test Admin Portal"
+admin.site.index_title = "Platform Services Test Admin"
 
 # swagger
 api_info = openapi.Info(
