@@ -1,4 +1,4 @@
-"""platform_services_34578 URL Configuration
+"""platform_service_34578 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -33,32 +33,27 @@ urlpatterns = [
     # Override email confirm to use allauth's HTML view instead of rest_auth's API view
     path("rest-auth/registration/account-confirm-email/<str:key>/", confirm_email),
     path("rest-auth/registration/", include("rest_auth.registration.urls")),
-    path("api/v1/", include("plans.api.v1.urls")),
-    path("api/v1/", include("subscription.api.v1.urls")),
     path("api/v1/", include("apps.api.v1.urls")),
     path("api/v1/", include("plan_features.api.v1.urls")),
+    path("api/v1/", include("plans.api.v1.urls")),
     path("api/v1/", include("subscriptions.api.v1.urls")),
-    path("apps/", include("apps.urls")),
-    path("plan_features/", include("plan_features.urls")),
-    path("plans/", include("plans.urls")),
-    path("subscriptions/", include("subscriptions.urls")),
 ]
 
-admin.site.site_header = "Platform Services Test"
-admin.site.site_title = "Platform Services Test Admin Portal"
-admin.site.index_title = "Platform Services Test Admin"
+admin.site.site_header = "Platform Service"
+admin.site.site_title = "Platform Service Admin Portal"
+admin.site.index_title = "Platform Service Admin"
 
 # swagger
 api_info = openapi.Info(
-    title="Platform Services API",
+    title="Platform Service API",
     default_version="v1",
-    description="API documentation for Platform Services App",
+    description="API documentation for Platform Service App",
 )
 
 schema_view = get_schema_view(
     api_info,
     public=True,
-    permission_classes=(permissions.IsAuthenticated,),
+    # permission_classes=(permissions.IsAuthenticated,),
 )
 
 urlpatterns += [

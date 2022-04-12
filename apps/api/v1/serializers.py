@@ -5,4 +5,4 @@ from apps.models import Apps
 class AppsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Apps
-        fields = "__all__"
+        fields = ("name", "description", "type", "framework", "domain_name", "screenshot", "is_active", "subscription")

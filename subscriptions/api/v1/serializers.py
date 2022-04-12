@@ -5,4 +5,5 @@ from subscriptions.models import Subscriptions
 class SubscriptionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Subscriptions
-        fields = "__all__"
+        fields = ("plan", "max_apps", "is_active")
+        # fields = "__all__"

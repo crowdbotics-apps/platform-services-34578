@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 from .viewsets import PlanFeaturesViewSet
 
 router = DefaultRouter()
-router.register("planfeatures", PlanFeaturesViewSet)
+router.register("plan_features", PlanFeaturesViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),

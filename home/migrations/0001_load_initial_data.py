@@ -3,10 +3,10 @@ from django.db import migrations
 
 def create_site(apps, schema_editor):
     Site = apps.get_model("sites", "Site")
-    custom_domain = "platform-services-34578.botics.co"
+    custom_domain = "platform-service-34578.botics.co"
 
     site_params = {
-        "name": "Platform Services",
+        "name": "Platform Service",
     }
     if custom_domain:
         site_params["domain"] = custom_domain
