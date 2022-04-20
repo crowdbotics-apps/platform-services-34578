@@ -128,13 +128,17 @@ WSGI_APPLICATION = "platform_service_34578.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env.str("POSTGRES_DATABASE", "test_db"),
+        'USER': env.str("POSTGRES_USER", "postgres"),
+        'PASSWORD': env.str("POSTGRES_PASSWORD", "password"),
+        'HOST': env.str("POSTGRES_HOST", "127.0.0.1"),
+        'PORT': env.str("POSTGRES_PORT", 5432),
     }
 }
 
-if env.str("DATABASE_URL", default=None):
-    DATABASES = {"default": env.db()}
+# if env.str("DATABASE_URL", default=None):
+#     DATABASES = {"default": env.db()}
 
 
 # Password validation
@@ -178,7 +182,7 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "static/files")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 

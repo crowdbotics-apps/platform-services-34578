@@ -25,5 +25,5 @@ class PlansViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(instance, data=data, partial=data)
         serializer.is_valid(raise_exception=True)
         self.perform_update(serializer)
-        return response.Response(serializer.data)
+        return response.Response(serializer.data, status=status.HTTP_204_NO_CONTENT)
 

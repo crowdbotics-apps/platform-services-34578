@@ -10,6 +10,8 @@ class Plans(models.Model):
     amount = models.DecimalField(
         max_digits=30,
         decimal_places=2,
+        blank=True,
+        default=0,
     )
     description = models.TextField(
         null=True,
@@ -29,6 +31,3 @@ class Plans(models.Model):
 
     def __str__(self):
         return self.name
-
-
-# Create your models here.
