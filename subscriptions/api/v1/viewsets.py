@@ -1,7 +1,10 @@
 import json
 from datetime import datetime
 
+from rest_framework import serializers
 from dateutil.relativedelta import relativedelta
+from django.forms.models import model_to_dict
+from django.utils.timezone import make_aware
 from rest_framework import authentication, permissions, response, status
 from rest_framework import viewsets
 
@@ -43,16 +46,32 @@ class SubscriptionsViewSet(viewsets.ModelViewSet):
     """
 
     def create(self, request, *args, **kwargs):
-        data = {
-            "start_at": datetime.now(),
-            "end_at": datetime.now() + relativedelta(months=1),
+        # get current date
+        start_at = make_aware(datetime.now())
+        end_at = start_at + relativedelta(months=1)
+
+        subscription_count = (
+            Subscriptions.objects.filter(user=request.user)
+                .filter(end_at__range=[start_at, end_at])
+                .filter(is_active=True).count()
+        )
+
+        # terminate new subscription if an active subscription exists
+        if subscription_count > 0:
+            return response.Response({'data': {
+                "error": "User already have an active subscription"
+            }}, status=status.HTTP_403_FORBIDDEN)
+
+        request_data = {
+            "start_at": start_at,
+            "end_at": end_at,
             "user": request.user,
             "plan": Plans.objects.get(id=request.data.get('plan')),
-            "max_apps": request.data.get('max_apps'),
             "is_active": True,
         }
 
-        Subscriptions(**data).save()
-        data = json.loads(json.dumps(data, indent=4, sort_keys=True, default=str))
+        # create record
+        data = model_to_dict(Subscriptions.objects.create(**request_data))
+
         headers = self.get_success_headers(data)
         return response.Response(data, status=status.HTTP_201_CREATED, headers=headers)

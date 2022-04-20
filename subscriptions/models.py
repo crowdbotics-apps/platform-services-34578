@@ -16,7 +16,6 @@ class Subscriptions(models.Model):
     start_at = models.DateTimeField()
     end_at = models.DateTimeField()
     is_active = models.BooleanField(default=True)
-    max_apps = models.IntegerField(default=1)
     created_at = models.DateTimeField(
         auto_now_add=True,
     )

@@ -8,7 +8,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 
 from .factories import PlanFactory
-from ....models import Plans
+from plans.models import Plans
 
 fake = Faker()
 
